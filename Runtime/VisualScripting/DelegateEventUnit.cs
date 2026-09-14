@@ -73,49 +73,110 @@ namespace Virtuademy.SDK.Core.VisualScripting
 
         protected abstract UnitOutput GetArguments(GraphReference reference, T eventData);
     }
-    public abstract class ActionEventUnit<UnitOutput> :
-    DelegateEventUnit<UnitOutput, Action, Action>
+    /// <summary>
+    /// A node driven by a plain C# <see cref="Action"/> event rather than a <c>UnityEvent</c>.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// It cannot reuse <see cref="DelegateEventUnit{UnitOutput, TEvent, TAction}"/>'s shape, which
+    /// hands the event itself to <c>AddListener</c>. That works for a <c>UnityEvent</c>, which is an
+    /// object with mutable state, and cannot work for a delegate: <c>+=</c> on a parameter rebinds
+    /// the local and the caller's event never hears about it. So the subclass says how to subscribe
+    /// instead of handing over something to subscribe to.
+    /// </para>
+    /// </remarks>
+    public abstract class ActionEventUnit<UnitOutput> : InstanceDataEventUnit<UnitOutput, Action>
     {
+        protected override bool register => true;
+
+        public override void Instantiate(GraphReference instance)
+        {
+            base.Instantiate(instance);
+            Subscribe(instanceData[instance]);
+        }
+
+        public override void Uninstantiate(GraphReference instance)
+        {
+            Unsubscribe(instanceData[instance]);
+            base.Uninstantiate(instance);
+        }
+
         protected override Action GetData(GraphReference reference)
         {
             return () => Trigger(reference, GetArguments(reference));
         }
 
-        protected override void AddListener(Action unityEvent, Action action)
-        {
-            unityEvent += action;
-        }
+        /// <summary>Adds <paramref name="handler"/> to the event this node listens to.</summary>
+        protected abstract void Subscribe(Action handler);
 
-        protected override void RemoveListener(Action unityEvent, Action action)
-        {
-            unityEvent -= action;
-        }
-
-        protected abstract override Action GetEvent(GraphReference reference);
+        /// <summary>Removes it again. Must undo exactly what <see cref="Subscribe"/> did.</summary>
+        protected abstract void Unsubscribe(Action handler);
 
         protected abstract UnitOutput GetArguments(GraphReference reference);
     }
 
-    public abstract class ActionEventUnit<UnitOutput, T> :
-    DelegateEventUnit<UnitOutput, Action<T>, Action<T>>
+    /// <inheritdoc cref="ActionEventUnit{UnitOutput}"/>
+    public abstract class ActionEventUnit<UnitOutput, T> : InstanceDataEventUnit<UnitOutput, Action<T>>
     {
+        protected override bool register => true;
+
+        public override void Instantiate(GraphReference instance)
+        {
+            base.Instantiate(instance);
+            Subscribe(instanceData[instance]);
+        }
+
+        public override void Uninstantiate(GraphReference instance)
+        {
+            Unsubscribe(instanceData[instance]);
+            base.Uninstantiate(instance);
+        }
+
         protected override Action<T> GetData(GraphReference reference)
         {
             return (value) => Trigger(reference, GetArguments(reference, value));
         }
 
-        protected override void AddListener(Action<T> unityEvent, Action<T> action)
-        {
-            unityEvent += action;
-        }
+        /// <inheritdoc cref="ActionEventUnit{UnitOutput}.Subscribe"/>
+        protected abstract void Subscribe(Action<T> handler);
 
-        protected override void RemoveListener(Action<T> unityEvent, Action<T> action)
-        {
-            unityEvent -= action;
-        }
-
-        protected abstract override Action<T> GetEvent(GraphReference reference);
+        /// <inheritdoc cref="ActionEventUnit{UnitOutput}.Unsubscribe"/>
+        protected abstract void Unsubscribe(Action<T> handler);
 
         protected abstract UnitOutput GetArguments(GraphReference reference, T eventData);
+    }
+
+    /// <summary>
+    /// The two-value variant, for an event whose payload the node splits into separate ports.
+    /// </summary>
+    public abstract class ActionEventUnit<UnitOutput, T1, T2> :
+    InstanceDataEventUnit<UnitOutput, Action<T1, T2>>
+    {
+        protected override bool register => true;
+
+        public override void Instantiate(GraphReference instance)
+        {
+            base.Instantiate(instance);
+            Subscribe(instanceData[instance]);
+        }
+
+        public override void Uninstantiate(GraphReference instance)
+        {
+            Unsubscribe(instanceData[instance]);
+            base.Uninstantiate(instance);
+        }
+
+        protected override Action<T1, T2> GetData(GraphReference reference)
+        {
+            return (first, second) => Trigger(reference, GetArguments(reference, first, second));
+        }
+
+        /// <inheritdoc cref="ActionEventUnit{UnitOutput}.Subscribe"/>
+        protected abstract void Subscribe(Action<T1, T2> handler);
+
+        /// <inheritdoc cref="ActionEventUnit{UnitOutput}.Unsubscribe"/>
+        protected abstract void Unsubscribe(Action<T1, T2> handler);
+
+        protected abstract UnitOutput GetArguments(GraphReference reference, T1 first, T2 second);
     }
 }
