@@ -2,7 +2,7 @@ using System;
 
 using UnityEngine;
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = true)]
     public class OnChangedCallAttribute : PropertyAttribute

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 using UnityEngine;
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     /// <summary>
     /// Class that rapresent a variable that can be cached. By defining how to get the variable

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Virtuademy.SDK.Core.Editor
+namespace SPACS.Editor
 {
     public static class AssetDatabaseExtension
     {

@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     /// <summary>
     /// This class handles basic link color behavior, supports also underline

@@ -1,6 +1,6 @@
 using UnityEngine.InputSystem;
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     public static class InputActionExtensions
     {

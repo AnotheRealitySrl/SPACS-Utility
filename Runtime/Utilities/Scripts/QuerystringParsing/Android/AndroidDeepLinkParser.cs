@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 #endif
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     public class AndroidDeepLinkParser : UrlParametersParserBase
     {

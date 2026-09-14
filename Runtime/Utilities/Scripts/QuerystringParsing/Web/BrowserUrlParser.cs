@@ -7,7 +7,7 @@ using System.Runtime.InteropServices; // Necessario per DllImport
 
 using UnityEngine;
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     public class BrowserUrlParser : UrlParametersParserBase
     {

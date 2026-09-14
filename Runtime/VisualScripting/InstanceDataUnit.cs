@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 
-namespace Virtuademy.SDK.Core.VisualScripting
+namespace SPACS.VisualScripting
 {
 
     public abstract class InstanceDataUnit<DataType> : Unit

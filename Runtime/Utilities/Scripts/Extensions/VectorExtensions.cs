@@ -4,7 +4,7 @@ using System.Linq;
 
 using UnityEngine;
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     public static class VectorExtensions
     {

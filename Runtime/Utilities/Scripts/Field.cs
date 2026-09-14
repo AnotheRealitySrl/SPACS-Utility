@@ -1,4 +1,4 @@
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     public class Field
     {

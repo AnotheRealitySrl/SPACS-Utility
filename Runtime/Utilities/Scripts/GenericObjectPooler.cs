@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     /// <summary>
     /// Static class that helps in managing Object Pooling.

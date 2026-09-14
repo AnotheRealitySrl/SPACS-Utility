@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     public class CustomType
     {

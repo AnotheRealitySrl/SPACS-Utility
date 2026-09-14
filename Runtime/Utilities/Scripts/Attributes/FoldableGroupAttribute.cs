@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     /// <summary>
     /// Puts the field in a foldable group that can contain one or more fields.

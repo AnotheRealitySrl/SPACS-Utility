@@ -3,7 +3,7 @@ using System.Collections;
 
 using UnityEngine;
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     /// <summary>
     /// Extend base system Action.

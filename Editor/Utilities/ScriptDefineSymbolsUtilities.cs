@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEditor.Build;
 using UnityEngine;
 
-namespace Virtuademy.SDK.Core.Editor
+namespace SPACS.Editor
 {
     public static class ScriptDefineSymbolsUtilities
     {

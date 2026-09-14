@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 #if !UNITY_WEBGL
 using UnityEngine;
 #endif
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     public static class NetworkUtilities
     {

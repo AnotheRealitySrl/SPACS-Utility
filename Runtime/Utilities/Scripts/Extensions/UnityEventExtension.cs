@@ -1,6 +1,6 @@
 using UnityEngine.Events;
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     public static class UnityEventExtension
     {

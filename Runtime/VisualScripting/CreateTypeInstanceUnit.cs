@@ -5,7 +5,7 @@ using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Virtuademy.SDK.Core
+namespace SPACS
 {
     //[UnitTitle("Reflectis Create:" + typeof(T))]
     //[UnitSurtitle(typeof(T))]

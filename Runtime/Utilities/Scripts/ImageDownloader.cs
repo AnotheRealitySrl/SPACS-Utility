@@ -1,11 +1,11 @@
-using Virtuademy.SDK.Core.Utilities;
+using SPACS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     public static class ImageDownloader
     {

@@ -1,9 +1,9 @@
-using Virtuademy.SDK.Core.Utilities;
+using SPACS.Utilities;
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     public class Interpolator
     {

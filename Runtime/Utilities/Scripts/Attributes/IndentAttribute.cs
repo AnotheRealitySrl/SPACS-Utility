@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     /// <summary>
     /// Applies an indentation space before the name of the field.

@@ -2,7 +2,7 @@ using System;
 
 using UnityEngine;
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     [Serializable]
     public class SerializedType<T>

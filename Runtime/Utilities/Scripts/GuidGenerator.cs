@@ -1,6 +1,6 @@
 using System;
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     /// <summary>
     /// https://stackoverflow.com/questions/52390149/how-to-generate-guid-from-datetime

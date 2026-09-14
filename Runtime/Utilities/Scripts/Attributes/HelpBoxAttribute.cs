@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     public enum HelpBoxMessageType { None, Info, Warning, Error }
 

@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     public static class JsonArrayHelper
     {

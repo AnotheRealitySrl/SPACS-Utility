@@ -2,7 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine.Events;
 
-namespace Virtuademy.SDK.Core.VisualScripting
+namespace SPACS.VisualScripting
 {
 
     public abstract class DelegateEventUnit<UnitOutput, TEvent, TAction> : InstanceDataEventUnit<UnitOutput, TAction>

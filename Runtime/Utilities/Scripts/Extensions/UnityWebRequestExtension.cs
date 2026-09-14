@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 using UnityEngine.Networking;
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     public static class UnityWebRequestExtension
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Virtuademy.SDK.Core.Utilities
+namespace SPACS.Utilities
 {
     /// <summary>
     /// Empty classed that derives form monobehaviour.

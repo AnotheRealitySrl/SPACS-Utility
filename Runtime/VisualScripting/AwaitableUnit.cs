@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 
 using UnityEngine;
 
-namespace Virtuademy.SDK.Core.VisualScripting
+namespace SPACS.VisualScripting
 {
     public abstract class AwaitableUnit : Unit
     {
