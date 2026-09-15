@@ -1,0 +1,25 @@
+{
+    "name": "SPACS.Utility.TextMeshPro",
+    "rootNamespace": "",
+    "references": [
+        "SPACS.Utility",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "SPACS_TEXTMESHPRO"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.ugui",
+            "expression": "",
+            "define": "SPACS_TEXTMESHPRO"
+        }
+    ],
+    "noEngineReferences": false
+}

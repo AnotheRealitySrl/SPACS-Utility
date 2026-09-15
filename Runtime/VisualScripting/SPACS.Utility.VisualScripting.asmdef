@@ -1,0 +1,26 @@
+{
+    "name": "SPACS.Utility.VisualScripting",
+    "rootNamespace": "",
+    "references": [
+        "SPACS.Utility",
+        "Unity.VisualScripting.Core",
+        "Unity.VisualScripting.Flow"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "SPACS_VISUALSCRIPTING"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.visualscripting",
+            "expression": "",
+            "define": "SPACS_VISUALSCRIPTING"
+        }
+    ],
+    "noEngineReferences": false
+}

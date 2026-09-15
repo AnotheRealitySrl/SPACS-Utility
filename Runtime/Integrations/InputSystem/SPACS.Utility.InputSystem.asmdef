@@ -1,0 +1,25 @@
+{
+    "name": "SPACS.Utility.InputSystem",
+    "rootNamespace": "",
+    "references": [
+        "SPACS.Utility",
+        "Unity.InputSystem"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "SPACS_INPUTSYSTEM"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.inputsystem",
+            "expression": "",
+            "define": "SPACS_INPUTSYSTEM"
+        }
+    ],
+    "noEngineReferences": false
+}

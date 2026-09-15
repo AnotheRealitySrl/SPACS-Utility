@@ -1,13 +1,7 @@
 {
     "name": "SPACS.Utility",
     "rootNamespace": "",
-    "references": [
-        "Unity.VisualScripting.Core",
-        "Unity.VisualScripting.Flow",
-        "Unity.InputSystem",
-        "Unity.TextMeshPro",
-        "UnityEngine.UI"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
