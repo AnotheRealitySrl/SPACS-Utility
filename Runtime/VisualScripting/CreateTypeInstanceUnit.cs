@@ -7,10 +7,10 @@ using UnityEngine;
 
 namespace SPACS
 {
-    //[UnitTitle("Reflectis Create:" + typeof(T))]
+    //[UnitTitle("Virtuademy Create:" + typeof(T))]
     //[UnitSurtitle(typeof(T))]
     //[UnitShortTitle("Create")]
-    //[UnitCategory("Reflectis\\Create")]
+    //[UnitCategory("Virtuademy\\Create")]
     public abstract class CreateTypeInstanceUnit<T> : Unit
     {
         private GameObject gameObject;
