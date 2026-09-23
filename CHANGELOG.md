@@ -11,3 +11,10 @@ Namespaces stay under `Virtuademy.SDK.Core.*`.
 
 The assembly references nothing first-party. Verified rather than assumed, and it is the property
 that makes this package worth having.
+
+### Added
+- **`Billboard`** (`SPACS.Utilities`), moved from the application's UIKit
+  (`Virtuademy.SDK.UIKit.UIComponents`) with its `.meta`, so its GUID is unchanged. The tasks canvas
+  prefab of `Virtuademy-SDK-Tasks` carries one, and in a creator project — which installs this
+  package but not the application — it was a missing script, so the canvas stopped facing the camera
+  in the published world. `[MovedFrom]` keeps name-based references to the old type resolving.
