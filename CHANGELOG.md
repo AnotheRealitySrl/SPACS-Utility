@@ -1,17 +1,5 @@
 # Release notes
 
-## Unreleased
-
-### Fixed
-- The inspector attributes this package declares (`OnChangedCall`, `HelpBox`, `DrawIf`,
-  `FoldableGroup`, `Indent`) and `SerializedType<>` now come with their drawers, moved here from
-  `Virtuademy-SystemCore` with their `.meta` files, so their GUIDs are unchanged. The drawers had
-  stayed behind in the application package, which a creator project does not install, so there the
-  attributes did nothing: a POI placeholder's text field never reached its TextMeshPro, and the POI
-  editor, which reads the TMP back on selection, reset the field. Namespace `SPACS.Editor`
-  (`FoldableGroupDrawer` stays in the global namespace, as it was); nothing references the drawer
-  types by name.
-
 ## v1.0.0
 
 First release as a package. Extracted from `Virtuademy-SDK-Core`, where these files had been
@@ -30,3 +18,13 @@ that makes this package worth having.
   prefab of `Virtuademy-SDK-Tasks` carries one, and in a creator project — which installs this
   package but not the application — it was a missing script, so the canvas stopped facing the camera
   in the published world. `[MovedFrom]` keeps name-based references to the old type resolving.
+
+### Fixed
+- The inspector attributes this package declares (`OnChangedCall`, `HelpBox`, `DrawIf`,
+  `FoldableGroup`, `Indent`) and `SerializedType<>` now come with their drawers, moved here from
+  `Virtuademy-SystemCore` with their `.meta` files, so their GUIDs are unchanged. The drawers had
+  stayed behind in the application package, which a creator project does not install, so there the
+  attributes did nothing: a POI placeholder's text field never reached its TextMeshPro, and the POI
+  editor, which reads the TMP back on selection, reset the field. Namespace `SPACS.Editor`
+  (`FoldableGroupDrawer` stays in the global namespace, as it was); nothing references the drawer
+  types by name.
