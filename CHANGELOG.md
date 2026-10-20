@@ -1,5 +1,19 @@
 # Release notes
 
+## Unreleased
+
+Minor bump: `CustomType` objects and arrays now read as `JToken` instead of null.
+
+### Fixed
+- **`CustomTypeConverter` broke on any object or array field.** It stored `reader.Value`, which is
+  null for both, and then read the nested tokens as if they were the object's own: a nested property
+  became a top-level field and a nested closing brace ended the object early. Object and array
+  fields are now `JToken`s; scalars keep the reader's types as before.
+- `CustomType` names its converter, so it deserializes in an app that never called
+  `JsonConverters.SetJsonConvertDefaultSettings` (before, into an empty object).
+- `JsonConverters.SetJsonConvertDefaultSettings` installed a factory that built new settings and
+  five new converters on every serialize and deserialize; it now returns one shared instance.
+
 ## v1.0.0
 
 First release as a package. Extracted from `Virtuademy-SDK-Core`, where these files had been

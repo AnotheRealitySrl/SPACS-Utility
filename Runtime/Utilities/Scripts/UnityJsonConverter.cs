@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 
 using System;
 using System.Collections.Generic;
@@ -11,20 +12,28 @@ namespace SPACS.Utilities
 {
     public static class JsonConverters
     {
+        /// <summary>
+        /// One instance for every call. <see cref="JsonConvert.DefaultSettings"/> is invoked on
+        /// every serialize and deserialize, and the factory used to build new settings and five new
+        /// converters each time. None of them holds state, so sharing them is safe; do not mutate
+        /// what <c>JsonConvert.DefaultSettings()</c> returns.
+        /// </summary>
+        private static readonly JsonSerializerSettings defaultSettings = new()
+        {
+            NullValueHandling = NullValueHandling.Ignore,
+            Converters = new JsonConverter[]
+            {
+                new Vector3Converter(),
+                new QuaternionConverter(),
+                new ColorConverter(),
+                new StringEnumConverter(),
+                new CustomTypeConverter(),
+            }
+        };
+
         public static void SetJsonConvertDefaultSettings()
         {
-            JsonConvert.DefaultSettings = () => new JsonSerializerSettings
-            {
-                NullValueHandling = NullValueHandling.Ignore,
-                Converters = new JsonConverter[]
-                {
-                    new Vector3Converter(),
-                    new QuaternionConverter(),
-                    new ColorConverter(),
-                    new StringEnumConverter(),
-                    new CustomTypeConverter(),
-                }
-            };
+            JsonConvert.DefaultSettings = () => defaultSettings;
         }
     }
 
@@ -199,27 +208,28 @@ namespace SPACS.Utilities
             writer.WriteEndObject();
         }
 
+        /// <remarks>
+        /// A scalar field keeps the value the reader produced (a JSON integer is a
+        /// <see cref="long"/>, a number with a fraction a <see cref="double"/>), as before. An
+        /// object or array field is a <see cref="JToken"/>. This used to store
+        /// <c>reader.Value</c> for every field, which is null for an object or array, and then kept
+        /// reading the nested tokens as if they were this object's: a nested property became a
+        /// field of its own and a nested closing brace ended the whole object early.
+        /// </remarks>
         public override CustomType ReadJson(JsonReader reader, Type objectType, CustomType existingValue, bool hasExistingValue, JsonSerializer serializer)
         {
+            if (reader.TokenType == JsonToken.Null)
+            {
+                return null;
+            }
+
             var customType = new CustomType();
 
-            while (reader.Read())
+            foreach (JProperty property in JObject.Load(reader).Properties())
             {
-                if (reader.TokenType == JsonToken.PropertyName)
-                {
-
-                    string key = reader.Value.ToString();
-
-                    reader.Read();
-                    object value = reader.Value;
-
-                    customType.Fields[key] = value;
-                }
-                else if (reader.TokenType == JsonToken.EndObject)
-                {
-                    break;
-                }
+                customType.Fields[property.Name] = property.Value is JValue scalar ? scalar.Value : property.Value;
             }
+
             return customType;
         }
     }
